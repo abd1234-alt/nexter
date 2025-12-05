@@ -1,0 +1,56 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+.about {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, max-content));
+    row-gap: 6rem;
+    margin: auto !important;
+    max-width: 100rem;
+    padding-block: 1rem 12rem;
+    overflow-x: hidden;
+
+    @include m.tablet {
+        grid-template-columns: repeat(2, 1fr);
+        padding-inline: 5rem;
+        padding-block: 10rem;
+    }
+
+    @include m.phone {
+        grid-template-columns: 1fr;
+    } 
+
+    &__about-item {
+        width: 35rem;
+        @include m.grid(2, 0rem, none, center);
+        grid-template-columns: 20% 70%;
+
+        @include m.tablet {
+            width: auto;
+        }
+
+        .about-icon {
+            ion-icon {
+                font-size: 5rem;
+                color: v.$primary-color;
+                --ionicon-stroke-width: 1.5rem;
+            }
+        }
+
+        h2 {
+            color: #54483a;
+            line-height: 3;
+            font-size: 2rem;
+            font-weight: v.$font-weight;
+        }
+
+        p {
+            color: v.$text-color;
+            font-family: v.$font-family-secondary;
+            font-size: 1.6rem;
+            font-weight: 300;
+            line-height: 1.5;
+            word-spacing: .4rem;
+        }
+    }
+}

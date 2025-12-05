@@ -1,0 +1,33 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 500;
+    overflow-x: hidden;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+
+    @include m.laptop {
+        font-size: 50%;
+    }
+}
+
+main {
+    margin-left: 7%;
+    width: 93%;
+
+    @include m.laptop {
+        width: 100%;
+        margin-left: 0% !important;
+    }
+}

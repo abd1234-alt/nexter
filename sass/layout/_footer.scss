@@ -1,0 +1,55 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+.footer {
+    background-color: v.$secondary-color;
+    padding: 10rem;
+    font-family: v.$font-family-secondary;
+    color: v.$color-white;
+
+    @include m.phone {
+        padding-block: 10rem;
+        padding-inline: 5rem;
+    }
+
+    &__footer-links {
+        margin-block-end: 8rem;
+        // @include m.flex(center, row);
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(6rem, max-content));
+        align-items: center;
+        column-gap: 4rem;
+
+        @include m.phone-1 {
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 6rem;
+        }
+
+        .link {
+            // width: 13rem;
+            text-align: v.$global-center;
+            font-size: 1.5rem;
+            font-weight: 200 !important;
+            line-height: 1.5;
+            transition: all .2s linear;
+
+            &:hover {
+                background-color: #aaaa;
+                transform: translateY(-.5rem);
+                // padding: .2rem;
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: v.$color-white;
+        }
+    }
+
+    &__f-paragraph {
+        font-weight: 400 !important;
+        font-size: 1.5rem;
+        text-align: v.$global-center;
+        color: #aaaa;
+    }
+}

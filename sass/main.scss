@@ -1,0 +1,13 @@
+// layout
+@use "layout/home";
+@use "layout/about";
+@use "layout/testimonial";
+@use "layout/properties";
+@use "layout/gallery";
+@use "layout/footer";
+@use "layout/general";
+
+// utils
+@use "utils/mixins";
+@use "utils/variables";
+

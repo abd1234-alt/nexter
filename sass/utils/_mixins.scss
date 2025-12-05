@@ -1,0 +1,73 @@
+@use "../utils/variables" as v;
+
+@mixin grid($columns: 2, $gap: 2rem, $align: stretch, $justify: stretch) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin flex($justify: $global-center, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin h3 {
+  color: v.$primary-color;
+  font-size: 1.6rem;
+  padding-block-end: 2rem;
+  font-weight: v.$font-weight;
+}
+
+@mixin primary-button{
+  background-color: v.$primary-color;
+  border: none;
+  padding: 1.8rem 3rem;
+  margin-block-start: 3rem;
+  color: v.$color-white;
+  font-family: inherit;
+  font-size: 1.5rem;
+  transition: all 0.4s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ca9049;
+  }
+}
+
+// media queries
+
+@mixin laptop{
+  @media(max-width: v.$laptop) {
+    @content;
+  }
+}
+
+// $tablet: 53.125em;
+@mixin tablet {
+  @media(max-width: v.$tablet) {
+    @content;
+  }
+}
+
+@mixin phone-1 {
+  @media(max-width: v.$phone-1) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media(max-width: v.$phone) {
+    @content;
+  }
+}
+
+@mixin small-device {
+  @media(max-width: v.$small-device) {
+    @content;
+  }
+}
+

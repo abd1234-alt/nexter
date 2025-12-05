@@ -1,0 +1,103 @@
+@use "../utils/mixins" as m;
+@use "../utils/variables" as v;
+
+.testimonial {
+    @include m.grid(2, 0rem, center);
+    height: 100vh;
+
+    @include m.tablet {
+        @include m.grid(1, 0rem, center);
+        
+    }
+
+    &__testimonial-item {
+        background-color: v.$primary-color;
+        height: 95%;
+        position: relative;
+
+        @include m.tablet {
+            height: fit-content;
+            padding: 5rem;
+        }
+
+        &:first-child {
+            background: linear-gradient(rgba(198, 153, 99, 0.5)), url(/img/testimonial-bg.jpg) center / cover no-repeat;
+            @include m.flex(center, row);
+            position: relative;
+
+            .t-img1 {
+                width: 65%;
+
+                @include m.tablet {
+                    width: 65%;
+                    position: relative;
+                    right: 18%;
+                }
+            }
+
+            .t-img2 {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-10%);
+                width: 60%;
+                z-index: 10;
+                box-shadow: .1rem 2rem 1rem #00000065;
+
+                @include m.tablet {
+                    width: 45%;
+                    top: auto;
+                    left: 45%;
+                    position: absolute;
+                    transform: translateX(0%);
+                }
+            }
+        }
+
+        &:last-child {
+            background-color: #f9f7f6;
+            @include m.flex(center, column);
+            padding: 8rem;
+            position: relative;
+
+            @include m.tablet {
+                grid-row-start: 1;
+            }
+            
+            $align-self: flex-start;
+            $font-style: italic;
+
+            h3 {
+                @include m.h3;
+                align-self: $align-self;
+                margin-block-end: 1.5rem;
+            }
+
+            h1 {
+                font-style: $font-style;
+                font-size: 4.2rem;
+                color: #54483a;
+                font-weight: v.$font-weight;
+                margin-block-end: 3rem;
+
+                @include m.tablet {
+                    align-self: $align-self;
+                }
+            }
+
+            p {
+                color: v.$text-color;
+                font-weight: 300;
+                font-size: 1.6rem;
+                font-family: v.$font-family-secondary;
+                line-height: 1.4;
+                font-style: $font-style;
+            }
+
+            button {
+                @include m.primary-button;
+                align-self: $align-self;
+            }
+        }
+    }
+}
